@@ -4,7 +4,7 @@ import {Observable, of} from 'rxjs';
 import {map, catchError, tap} from 'rxjs/operators';
 import {Spaceship} from './models/spaceship';
 
-const endpoint = 'https://swapi.co/api/starships/15/';
+const endpoint = 'https://swapi.co/api/starships/';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json'
@@ -29,6 +29,12 @@ export class StarwarsApiService {
 
   getSpaceship(id): Observable<any> {
     console.log('Getting Spaceship from Api: ', id);
+    return this.http.get(endpoint + id).pipe(
+      map(this.extractData));
+  }
+
+  getSpaceships(): Observable<any> {
+    console.log('Getting Spaceships from Api: ');
     return this.http.get(endpoint).pipe(
       map(this.extractData));
   }

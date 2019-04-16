@@ -6,6 +6,7 @@ import {SpaceshipsOverviewComponent} from './components/spaceships-overview/spac
 import {SpaceshipsDetailComponent} from './components/spaceships-detail/spaceships-detail.component';
 import {RouterModule} from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
+import { SpaceshipTableComponent } from './components/spaceship-table/spaceship-table.component';
 
 const APP_ROUTES = [
   {
@@ -37,7 +38,8 @@ const APP_ROUTES = [
   declarations: [
     AppComponent,
     SpaceshipsOverviewComponent,
-    SpaceshipsDetailComponent
+    SpaceshipsDetailComponent,
+    SpaceshipTableComponent
   ],
   imports: [
     BrowserModule,
