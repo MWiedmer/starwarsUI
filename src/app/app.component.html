@@ -4,7 +4,7 @@
     Welcome to {{ title }}!
   </h1>
 </div>
-<h2>Here are some links to help you start: </h2>
-<app-spaceships-overview>*ngFor="let s of spaceships" [spaceships]="s" [selected]="selectedSpaceship[s.id]"
-  (selectedChange)="selectedSpaceship($event)"></app-spaceships-overview>
-.
+<nav>
+  <a routerLink="/overview">Overview</a>
+</nav>
+<router-outlet></router-outlet>

@@ -27,15 +27,21 @@ export class StarwarsApiService {
     return body || {};
   }
 
-  getSpaceship(id): Observable<any> {
-    console.log('Getting Spaceship from Api: ', id);
-    return this.http.get(endpoint + id).pipe(
+  getSpaceship(url): Observable<any> {
+    console.log('Getting Spaceship from Api: ', url);
+    return this.http.get(url).pipe(
       map(this.extractData));
   }
 
   getSpaceships(): Observable<any> {
     console.log('Getting Spaceships from Api: ');
     return this.http.get(endpoint).pipe(
+      map(this.extractData));
+  }
+
+  getSpaceshipsByUrl(url: string): Observable<any> {
+    console.log('Getting Spaceships from Api: ');
+    return this.http.get(url).pipe(
       map(this.extractData));
   }
 

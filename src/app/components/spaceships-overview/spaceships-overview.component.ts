@@ -17,16 +17,15 @@ export class SpaceshipsOverviewComponent implements OnInit {
 
 
   constructor(public swService: StarwarsApiService) {
-    this.getSpaceship();
     this.getSpaceships();
   }
 
   ngOnInit() {
   }
 
-  getSpaceship() {
+  getSpaceship(url: string) {
     console.log('getting spaceship');
-    this.swService.getSpaceship(15).subscribe((data: {}) => {
+    this.swService.getSpaceship(url).subscribe((data: {url}) => {
       console.log(data);
       this.spaceship = data;
     });
@@ -34,10 +33,20 @@ export class SpaceshipsOverviewComponent implements OnInit {
 
   getSpaceships() {
     console.log('getting spaceships');
-    this.swService.getSpaceships().subscribe((data: {count: string, next: string, previous: string, results: Spaceship[]}) => {
+    this.swService.getSpaceships().subscribe((data: { count: string, next: string, previous: string, results: Spaceship[] }) => {
       console.log(data);
       this.spaceships = data;
     });
+  }
+
+
+  getSpaceshipsByUrl(url: string) {
+    console.log('getting spaceships');
+    this.swService.getSpaceshipsByUrl(url).subscribe(
+      (data: { count: string, next: string, previous: string, results: Spaceship[] }) => {
+        console.log(data);
+        this.spaceships = data;
+      });
   }
 
 }
